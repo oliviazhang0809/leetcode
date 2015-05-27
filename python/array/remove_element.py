@@ -3,10 +3,11 @@ class Solution:
     # @param    elem    an integer, value need to be removed
     # @return an integer
     def removeElement(self, A, elem):
-        j = len(A) - 1
-        for i in range(j, -1, -1):
+        end = len(A) - 1 # last index
+        for i in xrange(end, -1, -1):
             if (A[i] == elem):
-                A[i], A[j] = A[j], A[i]
-                j -= 1
-        return j + 1
+                A[i], A[end] = A[end], A[i]
+                end -= 1
+        return end + 1 # return the **new length**
+        
         

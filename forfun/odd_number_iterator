@@ -1,0 +1,46 @@
+class OddNumberIterator {
+    private Iterator<Integer> it;
+    int current; // indicate current value of the odd iterator
+    
+    OddNumberIterator(Iterator<Integer> it) { 
+        this.it = it 
+        current = 0;
+    }
+ 
+    // complete the rest of the methods
+    
+    Integer next() {
+        if (!hasNext()) {
+            throws NoSuchElementException;
+        }
+        int tmp = current;
+        current = 0; 
+        return tmp;
+    }
+    
+    boolean hasNext() {
+        if (!skip()) {
+            return true; // if current number is odd 
+        }
+        while (it != null && it.hasNext()) {
+            current = it.next(); // go to next number
+            if (!skip()) {
+                return true; // if current number is odd 
+            }
+        }
+        return false; // end of the list
+    }
+    
+    boolean skip() { // skip if the number is even
+        return (current & 1) != 1;
+    }
+}
+
+
+(1, 2, 3, 4)
+hasNext() -> true
+next() -> 1
+hasNext() -> true
+next() -> 3
+hasNext() -> false
+next() -> NoSuchElementException

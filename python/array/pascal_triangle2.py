@@ -3,12 +3,11 @@ class Solution:
     def getRow(self, rowIndex):
         if rowIndex == 0: return [1]
         if rowIndex == 1: return [1, 1]
-        list = [ [] for i in range(rowIndex + 1)]
-        list[0] = [1]
-        list[1] = [1, 1]
+        res = [1, 1] # temp result
         for i in xrange(2, rowIndex + 1):
-            list[i] = [1 for j in xrange(i + 1)]
+            tmp = [1 for j in xrange(i + 1)] # create a tmp row 
             for j in xrange(1, i):
-                list[i][j] = list[i - 1][j] + list[i - 1][j - 1]
-        return list[rowIndex]
+                tmp[j] = res[j - 1] + res[j] # ignore row number
+            res = tmp # update res
+        return res
         
