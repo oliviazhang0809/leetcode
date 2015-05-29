@@ -17,10 +17,10 @@ public class MinDepth {
 
 	public static int getMin(TreeNode root) {
 		if (root == null) {
-			return Integer.MAX_VALUE;
+			return Integer.MAX_VALUE; // prevent when [1, 2] -> 2 instead of 1
 		}
 
-		if (root.left == null && root.right == null) {
+		if (root.left == null && root.right == null) { // last node at this path
 			return 1;
 		}
 
