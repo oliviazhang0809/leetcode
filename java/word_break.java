@@ -14,6 +14,26 @@ public class WordBreak {
 	}
 
 	/**
+	 * 
+	 * @param s
+	 * @param wordDict
+	 * @return
+	 */
+	public boolean wordBreak_simple(String s, Set<String> wordDict) {
+		boolean[] dp = new boolean[s.length() + 1];
+		dp[0] = true;
+		for (int end = 1; end <= s.length(); end++) {
+			for (int start = 0; start < end; start++) {
+				if (dp[start] && wordDict.contains(s.substring(start, end))) {
+					dp[end] = true;
+					break;
+				}
+			}
+		}
+		return dp[s.length()];
+	}
+
+	/**
 	 * DP method
 	 * 
 	 * @param s

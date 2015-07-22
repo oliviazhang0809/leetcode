@@ -22,6 +22,17 @@ public class SwapNodes {
 		}
 	}
 
+	public ListNode swapPairs_recurr(ListNode head) {
+		if (head == null || head.next == null) {
+			return head;
+		}
+		ListNode l = swapPairs(head.next.next);
+		ListNode newHead = head.next;
+		newHead.next = head;
+		newHead.next.next = l;
+		return newHead;
+	}
+
 	public static ListNode swapPairs(ListNode head) {
 		if (head == null || head.next == null) {
 			return head;
